@@ -1,8 +1,8 @@
-# 🔋 Battery Simulation Project
+# Battery Simulation Project
 
 ### OCV Modeling • SOC Estimation • 2nd-Order ECM • Parameter Identification
 
-## 📚 Table of Contents
+## Table of Contents
 
 * [Overview](#-overview)
 * [Project Objectives](#-project-objectives)
@@ -26,7 +26,7 @@
 The project processes real experimental discharge data (`Profile.xlsx`), builds an OCV model, estimates SOC, simulates an ECM, and identifies optimal electrical parameters for accurate terminal-voltage prediction.
 ---
 
-## 🎯 Project Objectives
+## Project Objectives
 
 ### **1. Fit an OCV–SOC Curve from Experimental Data**
 
@@ -130,6 +130,6 @@ Voltage prediction error:
 
 ---
 
-### 👨‍🏫 Academic Note
+### Academic Note
 
 This repository is developed for **Battery System Modeling** coursework and demonstrates understanding of OCV modeling, SOC estimation, equivalent circuit modeling, and nonlinear optimization techniques.
