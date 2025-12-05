@@ -5,7 +5,7 @@
 ## 📚 Table of Contents
 
 * [Overview](#-overview)
-* [Project Objectives](#-project-objectives)git s
+* [Project Objectives](#-project-objectives)
 * [Project Structure](#-project-structure)
 * [Results](#-results)
 
