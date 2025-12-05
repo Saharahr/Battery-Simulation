@@ -1,4 +1,4 @@
-# Python cache
+# Ignore Python cache and IDE files
 __pycache__/
 *.pyc
 
@@ -12,4 +12,4 @@ env/
 battery-sim/
 
 # Jupyter checkpoints
-.ipynb_checkpoints/
+.ipynb_checkpoints/git 
