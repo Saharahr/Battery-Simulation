@@ -62,19 +62,29 @@ def main():
     #Compute MAE between measured and sumulated voltage
     mae = np.mean(np.abs(v_sim_full[1:] - v_meas[1:]))
     print(f"\nVoltage MAE (sim vs meas): {mae:.6f} V")
+    plot_parameter_id(time_s, v_meas, v_sim_full)
+
 
     #plot measured vs simulated voltage
-    plt.figure(figsize=(10, 5))
-    plt.plot(time_s, v_meas, label="Measured V")
-    plt.plot(time_s, v_sim_full, label="ECM V (identified)", alpha=0.8)
+def plot_parameter_id(time_s, v_meas, v_sim, save=True, show=True, auto_open=False):
+    fig = plt.figure(figsize=(10,5))
+    plt.plot(time_s, v_meas, label="Measured V", linewidth=2)
+    plt.plot(time_s, v_sim, label="ECM V (identified)", linewidth=2, alpha=0.8)
     plt.xlabel("Time (s)")
     plt.ylabel("Voltage (V)")
-    plt.title("2nd-Order ECM – Parameter Identification Result")
+    plt.title("2nd-Order ECM - Parameter Identification Result")
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.show()
-
+    if save:
+        save_path = "images/parameter_id.png"
+        fig.savefig(save_path, dpi=300, bbox_inches="tight")
+        print(f"[INFO] Saved → {save_path}")
+        if auto_open:
+            os.system(f"code {save_path}")
+    if show:
+        plt.show()
+    plt.close(fig)
 
 if __name__ == "__main__":
     main()

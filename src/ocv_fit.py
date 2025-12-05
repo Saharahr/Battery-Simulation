@@ -63,15 +63,18 @@ def plot_OCV_curve(dis_soc, dis_ocv, poly_order = 8, show_plot = True):
 
     #Plot
     if show_plot:
-        plt.figure()
-        plt.scatter(dis_soc, dis_ocv, label = "Measuerd data", marker = "o")
-        plt.plot(soc_grid, ocv_grid, label = f"{poly_order}th-order fit", linewidth = 2)
-        plt.xlabel("SOC")
-        plt.ylabel("OCV (V)")
-        plt.title("OCV-SOC Curve Fitting")
-        plt.legend()
-        plt.grid(True)
-        plt.show()
+        fig, ax = plt.subplots(figsize=(7, 4))
+        ax.scatter(dis_soc, dis_ocv, label="Measured data", s=35)
+        ax.plot(soc_grid, ocv_grid, label=f"{poly_order}th-order fit", linewidth=2)
+        ax.set_xlabel("SOC")
+        ax.set_ylabel("OCV (V)")
+        ax.set_title("OCV–SOC Curve Fitting")
+        ax.grid(True)
+        ax.legend()
+
+        fig.tight_layout()
+        fig.savefig("images/ocv_fit.png", dpi=300, bbox_inches="tight")
+        plt.close(fig)
 
     print(f"Polynominal coefficients (highest power first) :\n{coeffs}")
     print(f"Mean Absoulute Error: {mae: .6f} V")
