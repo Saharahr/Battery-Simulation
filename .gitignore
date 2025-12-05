@@ -1,0 +1,15 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Editor settings
+.vscode/
+.idea/
+
+# Virtual envs
+.venv/
+env/
+battery-sim/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
