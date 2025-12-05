@@ -6,11 +6,8 @@
 
 * [Overview](#-overview)
 * [Project Objectives](#-project-objectives)
-* [Modeling Pipeline](#-modeling-pipeline)
 * [Project Structure](#-project-structure)
-* [How to Run](#️-how-to-run)
 * [Results](#-results)
-* [Future Extensions](#-future-extensions)
 
 ---
 
