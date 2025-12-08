@@ -123,7 +123,7 @@ Voltage prediction error:
 
 ### Example ECM Plot
 
-![ECM Parameter Identification Result](images/parameter_id.png)
+![ECM Parameter Identification Result](images/images/ecm_eval_profile.png)
 ![OCV-SOC Polynomial Fit](images/ocv_fit.png)
 
 ```
