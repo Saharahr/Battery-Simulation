@@ -48,6 +48,8 @@ def main():
     p_opt = result.x
     R0_opt, R1_opt, C1_opt, R2_opt, C2_opt = p_opt
     print("\n===== Identified ECM Parameters =====")
+    np.save("data/identified_params.npy", p_opt)
+    print("[INFO] Saved parameters to data/identified_params.npy")
     print(f"R0 = {R0_opt:.6f} ohm")
     print(f"R1 = {R1_opt:.6f} ohm")
     print(f"C1 = {C1_opt:.2f} F")
@@ -62,12 +64,14 @@ def main():
     #Compute MAE between measured and sumulated voltage
     mae = np.mean(np.abs(v_sim_full[1:] - v_meas[1:]))
     print(f"\nVoltage MAE (sim vs meas): {mae:.6f} V")
-    plot_parameter_id(time_s, v_meas, v_sim_full)
+    plot_parameter_id(time_s[1:], v_meas[1:], v_sim_full[1:])
 
 
     #plot measured vs simulated voltage
-def plot_parameter_id(time_s, v_meas, v_sim, save=True, show=True, auto_open=False):
-    fig = plt.figure(figsize=(10,5))
+def plot_parameter_id(time_s, v_meas, v_sim,
+                      save=True, show=True, auto_open=False,
+                      custom_name=None):
+    fig = plt.figure(figsize=(10,4))
     plt.plot(time_s, v_meas, label="Measured V", linewidth=2)
     plt.plot(time_s, v_sim, label="ECM V (identified)", linewidth=2, alpha=0.8)
     plt.xlabel("Time (s)")
@@ -77,14 +81,13 @@ def plot_parameter_id(time_s, v_meas, v_sim, save=True, show=True, auto_open=Fal
     plt.grid(True)
     plt.tight_layout()
     if save:
-        save_path = "images/parameter_id.png"
+        if custom_name is None:
+            save_path = "images/parameter_id.png"
+        else:
+            save_path = custom_name
+
         fig.savefig(save_path, dpi=300, bbox_inches="tight")
         print(f"[INFO] Saved → {save_path}")
-        if auto_open:
-            os.system(f"code {save_path}")
-    if show:
-        plt.show()
-    plt.close(fig)
 
 if __name__ == "__main__":
     main()

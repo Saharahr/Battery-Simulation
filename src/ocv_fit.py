@@ -68,7 +68,7 @@ def plot_OCV_curve(dis_soc, dis_ocv, poly_order = 8, show_plot = True):
         ax.plot(soc_grid, ocv_grid, label=f"{poly_order}th-order fit", linewidth=2)
         ax.set_xlabel("SOC")
         ax.set_ylabel("OCV (V)")
-        ax.set_title("OCV–SOC Curve Fitting")
+        ax.set_title("OCV-SOC Curve Fitting")
         ax.grid(True)
         ax.legend()
 
