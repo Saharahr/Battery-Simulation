@@ -36,4 +36,3 @@ if __name__ == "__main__":
     print("\nFirst 15 SOC values:")
     print(soc[:15])
     print(f"\nFinal SOC: {soc[-1]:.5f}")
-
