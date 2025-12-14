@@ -1,13 +1,15 @@
 """
 Unified identification of:
-  - 2nd-order ECM parameters (R0, R1, C1, R2, C2)
-  - OCV-SOC polynomial coefficients
-  - Effective capacity Q_Ah
-  - Initial SOC soc0
-using a single dataset and nonlinear least-squares.
-By default this uses the low-current OCV test dataset:
-  data/ocv_test_SP20.xlsx
-You can switch to data/Profile.xlsx if desired.
+ - 2nd-order ECM parameters (R0, R1, C1, R2, C2)
+ - OCV-SOC polynomial coefficients (poly0...poly8)
+ - Effective capacity Q_Ah
+ - Initial SOC soc0
+using a single dataset and nonlinear least-squares (scipy.optimize.least_squares).
+
+By default, this uses the low-current OCV test dataset:
+ data/ocv_test_SP20.xlsx (Assumes discharge/rest profile, SOC from 1.0 down)
+
+Note: This approach fits the OCV curve dynamically during the optimization.
 """
 import numpy as np
 import matplotlib.pyplot as plt
@@ -89,8 +91,8 @@ def combined_residuals(params, time_s, current_a, v_meas,
 # Main identification script
 def main():
     # Load dataset
-    #    Here we use the OCVSOC dataset. To use Profile.xlsx instead,
-    #    replace the call with load_profile().
+    # Here we use the OCVSOC dataset. To use Profile.xlsx instead,
+    # replace the call with load_profile().
     data_path = Path("data/ocv_test_SP20.xlsx")
     time_s, v_meas, current_a, df = load_profile_ocvsoc(str(data_path))
     print("\n[INFO] Using dataset:", data_path)

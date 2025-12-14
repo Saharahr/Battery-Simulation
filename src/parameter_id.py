@@ -27,11 +27,11 @@ def main():
     soc_fit = soc[1:]
     # Initial guesses (same as we used before)
     p0 = np.array([
-        0.05,   # R0
+        0.01,   # R0
         0.01,   # R1
-        2000.0, # C1
+        1500.0, # C1
         0.02,   # R2
-        1500.0  # C2
+        4000.0  # C2
     ])
      # Bounds to keep parameters positive and in a reasonable range
     lower_bounds = np.array([1e-4, 1e-4, 1.0,   1e-4, 1.0])

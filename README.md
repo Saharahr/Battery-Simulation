@@ -111,15 +111,15 @@ Identified values (example):
 
 | Parameter | Value      |
 | --------- | ---------- |
-| R0        | 0.025964 Ω |
-| R1        | 0.010218 Ω |
-| C1        | 1154.21 F  |
-| R2        | 0.054695 Ω |
-| C2        | 2595.93 F  |
+| R0        | 0.026051 Ω |
+| R1        | 0.010442 Ω |
+| C1        | 1170.22 F  |
+| R2        | 0.055440 Ω |
+| C2        | 2652.79 F  |
 
 Voltage prediction error:
 
-> **ECM MAE (sim vs meas): ~0.000504 V**
+> **ECM MAE (sim vs meas): ~0.000509 V**
 
 ### Example ECM Plot
 
